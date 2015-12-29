@@ -13,7 +13,26 @@ NOTES:
 
 #include <stdio.h>
 
-void * sortedArrayPositionsChange(int *Arr, int len)
+void * sortedArrayPositionsChange(int *arr, int len)
 {
+	int i,j,temp;
+	if(arr==NULL||len<0)
 	return NULL;
+	for(i=0;i<len-1;i++)// 10 40 30 20 50
+    {
+        if(arr[i]>arr[i+1])
+        {
+            for(j=i;j<len;j++)
+            {
+                if(arr[j]>arr[i])
+                {
+                    temp=arr[j-1];arr[j-1]=arr[i];arr[i]=temp;
+                    return NULL;
+                }
+            }
+            temp=arr[len-1];arr[len-1]=arr[i];arr[i]=temp;return NULL;
+
+        }
+    }
+
 }
